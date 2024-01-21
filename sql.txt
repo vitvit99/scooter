@@ -3,7 +3,8 @@
 Для этого: выведи список логинов курьеров с количеством их заказов в статусе «В доставке» (поле inDelivery = true). 
 
 
-SELECT c.login AS login, COUNT(o."inDelivery") AS quantity FROM "Couriers" AS c LEFT OUTER JOIN "Orders" AS o ON c.id = o."courierId" WHERE o."inDelivery" = 't' GROUP BY c.id;
+SELECT c.login AS login, COUNT(*) AS quantity FROM "Couriers" AS c RIGHT OUTER JOIN "Orders" AS o ON c.id = o."courierId" WHERE o."inDelivery" = 't' GROUP BY c.login;
+
 
 
 
